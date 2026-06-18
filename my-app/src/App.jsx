@@ -6,22 +6,22 @@ import landingImage from "./Images/landing.png";
 import transportImage from "./Images/transport.png";
 import logoImage from "./Images/logo.png";
 import aboutImage from "./Images/c5.PNG";
-import locationImage from "./Images/local.png";
+import locationImage from "./Images/local.PNG";
 import h4 from "./Images/h4.png";
 import h5 from "./Images/h5.jpg";
 import h6 from "./Images/h6.png";
 
-import c1 from "./Images/c1.png";
-import c2 from "./Images/c2.png";
-import c3 from "./Images/c3.png";
-import c4 from "./Images/c4.png";
-import c5 from "./Images/c5.png";
-import c6 from "./Images/c6.png";
-import c7 from "./Images/c7.png";
-import c8 from "./Images/c8.png";
-import c9 from "./Images/c9.png";
-import c10 from "./Images/c10.png";
-import c11 from "./Images/c11.png";
+import c1 from "./Images/c1.PNG";
+import c2 from "./Images/c2.PNG";
+import c3 from "./Images/c3.PNG";
+import c4 from "./Images/c4.PNG";
+import c5 from "./Images/c5.PNG";
+import c6 from "./Images/c6.PNG";
+import c7 from "./Images/c7.PNG";
+import c8 from "./Images/c8.PNG";
+import c9 from "./Images/c9.PNG";
+import c10 from "./Images/c10.PNG";
+import c11 from "./Images/c11.PNG";
 
 
 // All icons using your existing images
