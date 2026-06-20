@@ -23,7 +23,6 @@ import c9 from "./Images/c9.PNG";
 import c10 from "./Images/c10.PNG";
 import c11 from "./Images/c11.PNG";
 
-
 // All icons using your existing images
 const excellenceIcon = h6;
 const creativityIcon = h4;
@@ -242,11 +241,15 @@ const App = () => {
   const t = content[language];
   const galleryImages = [c6, c1, c11, c2,  c4, c7, c8, c9 , c10];
   
-  const whatsappNumber = "212612345678";
+  // Updated WhatsApp number
+  const whatsappNumber = "21698691808";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t.whatsapp.message)}`;
   
   // Google Maps URL
   const googleMapsUrl = "https://www.google.com/maps/place/Ecole+Primaire+Privee+Jean+Jack+Rousseau/@36.7111368,10.2199968,1226m/data=!3m1!1e3!4m14!1m7!3m6!1s0x12fd37a16ace3639:0xbf1d3012c8028cde!2sEcole+Primaire+Privee+Jean+Jack+Rousseau!8m2!3d36.7111024!4d10.2193745!16s%2Fg%2F11dzt0f3mb!3m5!1s0x12fd37a16ace3639:0xbf1d3012c8028cde!8m2!3d36.7111024!4d10.2193745!16s%2Fg%2F11dzt0f3mb?entry=ttu&g_ep=EgoyMDI2MDYxMy4wIKXMDSoASAFQAw%3D%3D";
+  
+  // Facebook page URL
+  const facebookUrl = "https://www.facebook.com/Jean.Jaques.2016";
 
   return (
     <div className="app" dir={language === "arabic" ? "rtl" : "ltr"}>
@@ -442,12 +445,11 @@ const App = () => {
         <div className="container">
           <div className="localization-content">
             <div className="localization-image">
-              <a                 href={googleMapsUrl}
->
-              <img
-                src={locationImage || "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=500&h=400&fit=crop"}
-                alt="School location"
-              />
+              <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={locationImage || "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=500&h=400&fit=crop"}
+                  alt="School location"
+                />
               </a>
             </div>
             <div className="localization-text">
@@ -504,20 +506,27 @@ const App = () => {
         </div>
       </section>
 
-      {/* Footer - keep same */}
+      {/* Footer - Updated with email and Facebook link */}
       <footer className="footer">
         <div className="container">
           <div className="footer-content">
             <div className="footer-section">
               <h3>{t.schoolName}</h3>
               <p>{t.localization.address}</p>
-              <p>📞 +33 1 23 45 67 89</p>
-              <p>✉️ contact@jjrousseau.edu</p>
+              <p>📞 +216 98 691 808</p>
+              <p>✉️ ecoleprimairepriveejeanjacques@gmail.com</p>
             </div>
             <div className="footer-section">
               <h4>{language === "french" ? "Suivez-nous" : "تابعونا"}</h4>
               <div className="social-links">
-                <span>📘 Facebook</span>
+                <a 
+                  href={facebookUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="social-link"
+                >
+                  📘 Facebook
+                </a>
                 <span>📸 Instagram</span>
                 <span>🐦 Twitter</span>
               </div>
@@ -529,7 +538,7 @@ const App = () => {
         </div>
       </footer>
 
-      {/* WhatsApp Floating Button */}
+      {/* WhatsApp Floating Button - Fixed with proper icon */}
       <a 
         href={whatsappUrl}
         target="_blank"
@@ -537,7 +546,16 @@ const App = () => {
         className={`whatsapp-float ${showWhatsApp ? 'visible' : ''}`}
         aria-label="Contact us on WhatsApp"
       >
-        <i className="fab fa-whatsapp"></i>
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 24 24" 
+          width="32" 
+          height="32" 
+          fill="white"
+          className="whatsapp-icon"
+        >
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
         <span className="whatsapp-tooltip">
           {language === "french" ? "Contactez-nous" : "اتصل بنا"}
         </span>
