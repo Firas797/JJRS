@@ -24,6 +24,7 @@ html {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 /* ============================================
@@ -76,6 +77,7 @@ html {
   font-weight: 500;
   transition: color 0.3s ease;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .navbar.scrolled .nav-links a {
@@ -244,7 +246,7 @@ html {
 }
 
 /* ============================================
-   BANNER SECTION - BLUE GRADIENT
+   BANNER SECTION
    ============================================ */
 .banner-section {
   padding: 3rem 2rem;
@@ -596,21 +598,19 @@ html {
   z-index: 1;
 }
 
-.mission-item-icon i {
-  font-size: 2rem;
-  color: #667eea;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+.mission-icon-emoji {
+  font-size: 2.2rem;
+  transition: transform 0.4s ease;
+}
+
+.mission-item:hover .mission-icon-emoji {
+  transform: scale(1.1);
 }
 
 .mission-item:hover .mission-item-icon {
   transform: scale(1.1) rotate(-5deg);
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
   box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
-}
-
-.mission-item:hover .mission-item-icon i {
-  color: #764ba2;
-  transform: scale(1.1);
 }
 
 .mission-item h3 {
@@ -640,7 +640,7 @@ html {
 }
 
 /* ============================================
-   FEATURES SECTION - BIG IMAGES
+   FEATURES SECTION
    ============================================ */
 .features {
   padding: 5rem 2rem;
@@ -663,94 +663,65 @@ html {
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  position: relative;
-  z-index: 1;
+  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .feature-card {
   background: white;
-  padding: 3.5rem 3rem 3rem;
-  border-radius: 25px;
+  padding: 2rem;
+  border-radius: 20px;
   text-align: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
   position: relative;
   overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
-  min-height: 380px;
+  min-height: 340px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
 }
 
-.feature-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.03), rgba(118, 75, 162, 0.03));
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.feature-card:hover::before {
-  opacity: 1;
-}
-
 .feature-card:hover {
-  transform: translateY(-15px) scale(1.02);
-  box-shadow: 0 30px 70px rgba(102, 126, 234, 0.25);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
 }
 
-.feature-icon-wrapper {
-  width: 180px;
-  height: 180px;
-  margin: 0 auto 1.5rem;
+.feature-image-wrapper {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
-  border-radius: 50%;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  z-index: 1;
-  border: 3px solid rgba(102, 126, 234, 0.1);
+  padding: 10px;
   flex-shrink: 0;
 }
 
-.feature-card:hover .feature-icon-wrapper {
-  transform: scale(1.08) rotate(5deg);
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
-  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.25);
-  border-color: rgba(102, 126, 234, 0.3);
+.feature-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+  padding: 5px;
 }
 
-.feature-icon-img {
-  width: 320px;
-  height: 220px;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
-}
-
-.feature-card:hover .feature-icon-img {
-  transform: scale(1.1) rotate(-5deg);
-  filter: drop-shadow(0 8px 24px rgba(102, 126, 234, 0.3));
+.feature-card:hover .feature-img {
+  transform: scale(1.08);
 }
 
 .feature-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 0.8rem;
   color: #2d3748;
-  transition: all 0.4s ease;
-  position: relative;
-  z-index: 1;
-  font-weight: 700;
+  transition: color 0.3s ease;
 }
 
 .feature-card:hover h3 {
@@ -758,22 +729,12 @@ html {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  transform: scale(1.02);
 }
 
 .feature-card p {
   color: #666;
-  line-height: 1.7;
-  position: relative;
-  z-index: 1;
-  transition: all 0.4s ease;
-  font-size: 1rem;
-  max-width: 280px;
-  margin: 0 auto;
-}
-
-.feature-card:hover p {
-  color: #4a4a4a;
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 .feature-hover-effect {
@@ -781,32 +742,15 @@ html {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 5px;
+  height: 4px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s ease;
 }
 
 .feature-card:hover .feature-hover-effect {
   transform: scaleX(1);
-}
-
-.feature-card::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(102, 126, 234, 0.05) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  pointer-events: none;
-}
-
-.feature-card:hover::after {
-  opacity: 1;
 }
 
 /* ============================================
@@ -865,6 +809,11 @@ html {
   width: 100%;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.localization-image img:hover {
+  transform: scale(1.03);
 }
 
 .localization-text .address {
@@ -878,7 +827,38 @@ html {
 }
 
 /* ============================================
-   GALLERY SECTION - ENHANCED
+   GOOGLE MAPS BUTTON
+   ============================================ */
+.google-maps-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.9rem 2rem;
+  margin-top: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.google-maps-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+  color: white;
+}
+
+.google-maps-btn i {
+  font-size: 1.2rem;
+}
+
+/* ============================================
+   GALLERY SECTION
    ============================================ */
 .gallery {
   padding: 5rem 2rem;
@@ -1052,12 +1032,16 @@ html {
   flex-wrap: wrap;
 }
 
-.social-links span {
+.social-links span,
+.social-link {
   cursor: pointer;
   transition: transform 0.3s ease;
+  color: white;
+  text-decoration: none;
 }
 
-.social-links span:hover {
+.social-links span:hover,
+.social-link:hover {
   transform: translateY(-3px);
   color: #667eea;
 }
@@ -1179,13 +1163,6 @@ html {
     grid-template-columns: repeat(2, 1fr);
   }
   
- 
-  
-  .feature-icon-img {
-    width: 220px;
-    height: 220px;
-  }
-  
   .mission-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1202,12 +1179,13 @@ html {
     left: -100%;
     width: 100%;
     height: calc(100vh - 80px);
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
     flex-direction: column;
     align-items: center;
-    padding-top: 2rem;
+    padding-top: 3rem;
     transition: left 0.3s ease;
+    gap: 1.5rem;
   }
 
   .nav-links.active {
@@ -1217,6 +1195,16 @@ html {
   .nav-links a {
     color: #333 !important;
     text-shadow: none !important;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    width: 80%;
+    text-align: center;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    background: rgba(102, 126, 234, 0.1);
   }
 
   .hero-title {
@@ -1262,18 +1250,12 @@ html {
   }
 
   .feature-card {
-    min-height: 340px;
-    padding: 2rem 1.5rem 1.8rem;
+    min-height: 300px;
+    padding: 1.5rem;
   }
 
-  .feature-icon-wrapper {
-    width: 160px;
+  .feature-image-wrapper {
     height: 160px;
-  }
-
-  .feature-icon-img {
-    width: 220px;
-    height: 220px;
   }
 
   .mission-section {
@@ -1310,6 +1292,11 @@ html {
   .logo-image {
     height: 60px;
   }
+
+  .google-maps-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1318,18 +1305,12 @@ html {
   }
 
   .feature-card {
-    min-height: 300px;
-    padding: 1.8rem 1rem 1.5rem;
+    min-height: 260px;
+    padding: 1.2rem;
   }
 
-  .feature-icon-wrapper {
-    width: 140px;
+  .feature-image-wrapper {
     height: 140px;
-  }
-
-  .feature-icon-img {
-    width: 280px;
-    height: 150px;
   }
 
   .feature-card h3 {
@@ -1352,12 +1333,27 @@ html {
     width: 100%;
     justify-content: center;
   }
+
+  .nav-container {
+    padding: 1rem;
+  }
+}
+/* ============================================
+   RTL SUPPORT - COMPLETE
+   ============================================ */
+[dir="rtl"] {
+  text-align: right;
 }
 
-/* ============================================
-   RTL SUPPORT
-   ============================================ */
 [dir="rtl"] .nav-links {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav-container {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .language-switch {
   flex-direction: row-reverse;
 }
 
@@ -1367,8 +1363,20 @@ html {
   text-align: right;
 }
 
+[dir="rtl"] .about-text p,
+[dir="rtl"] .transport-text p,
+[dir="rtl"] .localization-text p {
+  text-align: right;
+}
+
 [dir="rtl"] .banner-content {
   direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .banner-title,
+[dir="rtl"] .banner-description {
+  text-align: right;
 }
 
 [dir="rtl"] .mission-text p {
@@ -1379,8 +1387,39 @@ html {
   text-align: right;
 }
 
+[dir="rtl"] .mission-item h3,
+[dir="rtl"] .mission-item p {
+  text-align: right;
+}
+
 [dir="rtl"] .mission-cta {
   flex-direction: row-reverse;
+}
+
+[dir="rtl"] .mission-item-icon {
+  margin: 0 auto 1rem;
+}
+
+[dir="rtl"] .mission-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .features-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .feature-card h3,
+[dir="rtl"] .feature-card p {
+  text-align: center;
+}
+
+[dir="rtl"] .gallery-overlay-content {
+  direction: rtl;
+}
+
+[dir="rtl"] .gallery-overlay-title,
+[dir="rtl"] .gallery-overlay-desc {
+  text-align: center;
 }
 
 [dir="rtl"] .whatsapp-float {
@@ -1400,195 +1439,173 @@ html {
   border-right: 6px solid rgba(0, 0, 0, 0.8);
 }
 
-[dir="rtl"] .gallery-overlay-content {
-  direction: rtl;
-}
-/* ============================================
-   FEATURES SECTION - IMPROVED
-   ============================================ */
-.features {
-  padding: 5rem 2rem;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.feature-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 20px;
-  text-align: center;
-  transition: all 0.4s ease;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-  position: relative;
-  overflow: hidden;
-}
-
-.feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
-}
-
-.feature-image-wrapper {
-  width: 100%;
-  height: 200px;
-  margin-bottom: 1.5rem;
-  border-radius: 12px;
-  overflow: hidden;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.feature-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.feature-card:hover .feature-img {
-  transform: scale(1.08);
-}
-
-.feature-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.8rem;
-  color: #2d3748;
-  transition: color 0.3s ease;
-}
-
-.feature-card:hover h3 {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.feature-card p {
-  color: #666;
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-.feature-hover-effect {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
-}
-
-.feature-card:hover .feature-hover-effect {
-  transform: scaleX(1);
-}
-
-/* ============================================
-   MISSION ICONS
-   ============================================ */
-.mission-item-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 1rem;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-  border-radius: 50%;
-  transition: all 0.4s ease;
-}
-
-.mission-item:hover .mission-item-icon {
-  transform: scale(1.1) rotate(-5deg);
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
-}
-
-.mission-icon-emoji {
-  font-size: 2.2rem;
-  transition: transform 0.4s ease;
-}
-
-.mission-item:hover .mission-icon-emoji {
-  transform: scale(1.1);
-}
-
-/* ============================================
-   GOOGLE MAPS BUTTON
-   ============================================ */
-.google-maps-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 0.9rem 2rem;
-  margin-top: 1rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-}
-
-.google-maps-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-  color: white;
-}
-
-.google-maps-btn i {
-  font-size: 1.2rem;
-}
-
-/* ============================================
-   RESPONSIVE UPDATES
-   ============================================ */
-@media (max-width: 1024px) {
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .features-grid {
-    grid-template-columns: 1fr;
-    max-width: 450px;
-    margin: 0 auto;
-  }
-
-  .feature-image-wrapper {
-    height: 160px;
-  }
-  
-  .google-maps-btn {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .feature-image-wrapper {
-    height: 140px;
-  }
-}
-
-/* RTL Support */
 [dir="rtl"] .google-maps-btn {
   flex-direction: row-reverse;
 }
 
+[dir="rtl"] .google-maps-btn i {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+[dir="rtl"] .footer-content {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .social-links {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .social-links span,
+[dir="rtl"] .social-links a {
+  text-align: right;
+}
+
+[dir="rtl"] .hero-title,
+[dir="rtl"] .hero-subtitle {
+  text-align: center;
+}
+
+[dir="rtl"] .section-title {
+  text-align: center;
+}
+
+[dir="rtl"] .transport-text ul {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+[dir="rtl"] .transport-text li {
+  text-align: right;
+  padding-right: 1.5rem;
+  padding-left: 0;
+}
+
+[dir="rtl"] .address {
+  text-align: right;
+}
+
+[dir="rtl"] .hamburger {
+  margin-left: 0;
+  margin-right: auto;
+}
+
 [dir="rtl"] .feature-hover-effect {
   transform-origin: right;
+}
+
+/* RTL Mobile Navigation - FIXED */
+@media (max-width: 768px) {
+  [dir="rtl"] .nav-links {
+    position: fixed;
+    top: 80px;
+    left: auto !important;
+    right: -100% !important;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column !important; /* Force vertical stacking */
+    align-items: center;
+    padding-top: 3rem;
+    transition: right 0.3s ease;
+    gap: 1.5rem;
+    display: flex;
+  }
+
+  [dir="rtl"] .nav-links.active {
+    left: auto !important;
+    right: 0 !important;
+  }
+
+  [dir="rtl"] .nav-container {
+    flex-direction: row;
+  }
+
+  [dir="rtl"] .language-switch {
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+  [dir="rtl"] .nav-links a {
+    text-align: center;
+    color: #333 !important;
+    text-shadow: none !important;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    width: 80%;
+    text-align: center;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+  }
+
+  [dir="rtl"] .nav-links a:hover {
+    background: rgba(102, 126, 234, 0.1);
+  }
+}
+
+/* Also fix the regular mobile nav to ensure it works properly */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column !important; /* Force vertical stacking */
+    align-items: center;
+    padding-top: 3rem;
+    transition: left 0.3s ease;
+    gap: 1.5rem;
+    display: flex;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+  
+  .nav-links a {
+    color: #333 !important;
+    text-shadow: none !important;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    width: 80%;
+    text-align: center;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    background: rgba(102, 126, 234, 0.1);
+  }
+}
+
+[dir="rtl"] .banner-button {
+  margin-right: 0;
+}
+
+[dir="rtl"] .cta h2 {
+  text-align: center;
+}
+
+[dir="rtl"] .footer-section h3,
+[dir="rtl"] .footer-section h4,
+[dir="rtl"] .footer-section p {
+  text-align: right;
+}
+
+[dir="rtl"] .mission-header {
+  text-align: center;
+}
+
+[dir="rtl"] .mission-underline {
+  margin: 1rem auto 0;
+}
+
+[dir="rtl"] .mission-underline::before {
+  left: 50%;
+  transform: translateX(-50%);
 }

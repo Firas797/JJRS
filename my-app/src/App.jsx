@@ -53,6 +53,16 @@ const App = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle nav link click - closes mobile menu and scrolls smoothly
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const content = {
     french: {
       schoolName: "École Jean-Jacques Rousseau",
@@ -167,7 +177,7 @@ const App = () => {
       mission: {
         title: "مهمتنا التعليمية",
         desc: "تأسست مدرستنا الخاصة على قيم التميز والاحترام والابتكار، وتلتزم بتوفير بيئة تعليمية فريدة حيث يمكن لكل طالب أن يزدهر بشكل كامل. يرافق فريقنا التربوي المؤهل الطلاب في رحلتهم الأكاديمية والشخصية، من خلال تنمية الاستقلالية والفضول الفكري والمواطنة المسؤولة. نعد طلابنا لمواجهة تحديات العالم الحديث مع الحفاظ على القيم الأساسية التي تجعل من شبابنا بالغين مسؤولين وناجحين.",
-        cta: "حدد موعداً",
+        cta: "سجل الآن",
         pillars: {
           bilingual: {
             icon: "🌍",
@@ -213,7 +223,7 @@ const App = () => {
       localization: {
         title: "موقعنا",
         desc: "يقع حرمنا الجامعي في قلب المدينة، ويوفر إطارًا مثاليًا للتعلم.",
-        address: "123 شارع التربية، وسط المدينة",
+        address: "موروج 6 ، بن عروس",
         button: "عرض على خرائط جوجل",
       },
       gallery: {
@@ -253,18 +263,43 @@ const App = () => {
 
   return (
     <div className="app" dir={language === "arabic" ? "rtl" : "ltr"}>
-      {/* Navigation - keep same as your original */}
+      {/* Navigation */}
       <nav className="navbar">
         <div className="nav-container">
           <div className="logo">
             <img src={logoImage} alt="School Logo" className="logo-image" />
           </div>
           <div className={`nav-links ${isMenuOpen ? "active" : ""}`}>
-            <a href="#home">{t.nav.home}</a>
-            <a href="#about">{t.nav.about}</a>
-            <a href="#mission">{t.nav.services}</a>
-            <a href="#transport">{t.nav.transport}</a>
-            <a href="#contact">{t.nav.contact}</a>
+            <a 
+              href="#home" 
+              onClick={(e) => handleNavClick(e, 'home')}
+            >
+              {t.nav.home}
+            </a>
+            <a 
+              href="#about" 
+              onClick={(e) => handleNavClick(e, 'about')}
+            >
+              {t.nav.about}
+            </a>
+            <a 
+              href="#mission" 
+              onClick={(e) => handleNavClick(e, 'mission')}
+            >
+              {t.nav.services}
+            </a>
+            <a 
+              href="#transport" 
+              onClick={(e) => handleNavClick(e, 'transport')}
+            >
+              {t.nav.transport}
+            </a>
+            <a 
+              href="#contact" 
+              onClick={(e) => handleNavClick(e, 'contact')}
+            >
+              {t.nav.contact}
+            </a>
           </div>
           <div className="language-switch">
             <button
@@ -288,7 +323,7 @@ const App = () => {
         </div>
       </nav>
 
-      {/* Hero Section - keep same */}
+      {/* Hero Section */}
       <section id="home" className="hero" style={{ backgroundImage: `url(${landingImage})` }}>
         <div className="hero-overlay"></div>
         <div className="hero-content">
@@ -298,7 +333,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Banner Section - keep same */}
+      {/* Banner Section */}
       <section className="banner-section">
         <div className="banner-container">
           <div className="banner-content">
@@ -331,7 +366,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* About Section - keep same */}
+      {/* About Section */}
       <section id="about" className="about">
         <div className="container">
           <h2 className="section-title">{t.about.title}</h2>
@@ -350,12 +385,12 @@ const App = () => {
         </div>
       </section>
 
-      {/* Mission Section - UPDATED with icons */}
+      {/* Mission Section */}
       <section id="mission" className="mission-section">
         <div className="container">
           <div className="mission-header">
             <span className="mission-badge">✨ Notre Engagement</span>
-            <h2 className="mission-title">Notre Mission Éducative</h2>
+            <h2 className="mission-title">{t.mission.title}</h2>
             <div className="mission-underline"></div>
           </div>
           
@@ -385,7 +420,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Features Section - IMPROVED design */}
+      {/* Features Section */}
       <section id="features" className="features">
         <div className="container">
           <h2 className="section-title">{t.features.title}</h2>
@@ -420,7 +455,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Transport Section - keep same */}
+      {/* Transport Section */}
       <section id="transport" className="transport">
         <div className="container">
           <div className="transport-content">
@@ -440,7 +475,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Localization Section - UPDATED with Google Maps button */}
+      {/* Localization Section */}
       <section id="localization" className="localization">
         <div className="container">
           <div className="localization-content">
@@ -472,7 +507,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Gallery Section - keep same */}
+      {/* Gallery Section */}
       <section className="gallery">
         <div className="container">
           <h2 className="section-title">{t.gallery.title}</h2>
@@ -498,7 +533,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* CTA Section - keep same */}
+      {/* CTA Section */}
       <section id="contact" className="cta">
         <div className="container">
           <h2>{t.cta.title}</h2>
@@ -506,7 +541,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Footer - Updated with email and Facebook link */}
+      {/* Footer */}
       <footer className="footer">
         <div className="container">
           <div className="footer-content">
@@ -538,7 +573,7 @@ const App = () => {
         </div>
       </footer>
 
-      {/* WhatsApp Floating Button - Fixed with proper icon */}
+      {/* WhatsApp Floating Button */}
       <a 
         href={whatsappUrl}
         target="_blank"
